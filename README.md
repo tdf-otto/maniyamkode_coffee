@@ -1,10 +1,8 @@
 # Maniyamkode Coffee — local farm monitoring app
 
-Local-first monitoring web app for the **Maniyamkode (PUL) Robusta coffee
-estate, Wayanad, Kerala** (~38 plots + 3 boundary features from
-`data/PUL_plots.geojson`). Built for Gayathri (estate manager): every screen
-answers *what needs attention, where, and is this normal for this time of the
-coffee year* — in seconds.
+Local-first monitoring web app (~38 plots + 3 boundary features from
+`data/PUL_plots.geojson`).
+
 
 Stack: **Python 3.12+ / FastAPI** backend, **plain HTML+JS (Leaflet + Chart.js,
 vendored in `static/vendor/`, no Node build step)** frontend, **one local

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maniyamkode Coffee — farm monitoring</title>
+<link rel="stylesheet" href="/static/vendor/leaflet.css">
+<link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<!-- Top strip: estate, phenostage, monsoon status, data freshness -->
+<header id="topstrip">
+  <div class="brand">
+    <span class="estate-name" data-i18n="estate_name">Maniyamkode (PUL), Wayanad</span>
+    <span id="phenostage-chip" class="chip chip-stage" title="Current phenostage (coffee calendar)">…</span>
+    <span id="monsoon-chip" class="chip chip-monsoon hidden"></span>
+  </div>
+  <div id="source-freshness" class="sources" title="Data freshness per source"></div>
+  <div class="top-actions">
+    <button id="btn-export" data-i18n="export_all">Export everything (.zip)</button>
+    <button id="btn-lang" title="Language /dings">EN</button>
+  </div>
+</header>
+
+<main id="layout">
+  <!-- Attention-first home: ranked flag list -->
+  <section id="attention">
+    <h2 data-i18n="attention_title">What needs attention</h2>
+    <p id="attention-hint" class="hint" data-i18n="attention_hint"></p>
+    <div id="flag-list" class="flag-list"><p class="hint">loading…</p></div>
+  </section>
+
+  <!-- Map -->
+  <section id="map-panel">
+    <div id="map-toolbar">
+      <div id="metric-switcher" class="switcher"></div>
+      <div class="time-controls">
+        <input type="range" id="time-slider" min="0" max="0" value="0" step="1">
+        <span id="time-label"></span>
+      </div>
+      <div class="map-actions">
+        <label><input type="checkbox" id="toggle-boundaries"> boundaries</label>
+        <button id="btn-compare" data-i18n="compare">Compare</button>
+        <button id="btn-archive" data-i18n="scenes">Scene archive</button>
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="compare-bar" class="hidden">
+      <span data-i18n="compare_hint">Two-date compare: pick date A and B</span>
+      <select id="compare-a"></select><select id="compare-b"></select>
+      <button id="btn-compare-apply" data-i18n="apply">Apply</button>
+      <button id="btn-compare-close">✕</button>
+    </div>
+    <div id="archive-panel" class="hidden">
+      <h3 data-i18n="scene_archive">Scene archive (monthly composites)</h3>
+      <div id="archive-grid"></div>
+    </div>
+  </section>
+</main>
+
+<!-- Plot drawer -->
+<aside id="drawer" class="hidden">
+  <div id="drawer-head">
+    <h2 id="drawer-title">Plot</h2>
+    <button id="drawer-close">✕</button>
+  </div>
+  <nav id="drawer-tabs">
+    <button data-tab="overview" class="active" data-i18n="tab_overview">Overview</button>
+    <button data-tab="season" data-i18n="tab_season">Season</button>
+    <button data-tab="imagery" data-i18n="tab_imagery">Imagery</button>
+    <button data-tab="records" data-i18n="tab_records">Records</button>
+    <button data-tab="soil" data-i18n="tab_soil">Soil & census</button>
+  </nav>
+  <div id="drawer-body">
+    <div class="tab-pane" id="tab-overview"></div>
+    <div class="tab-pane hidden" id="tab-season"></div>
+    <div class="tab-pane hidden" id="tab-imagery"></div>
+    <div class="tab-pane hidden" id="tab-records"></div>
+    <div class="tab-pane hidden" id="tab-soil"></div>
+  </div>
+</aside>
+
+<div id="lightbox" class="hidden"><img id="lightbox-img" alt="scene quicklook"><button id="lightbox-close">✕</button></div>
+
+<script src="/static/vendor/leaflet.js"></script>
+<script src="/static/vendor/chart.umd.js"></script>
+<script src="/static/js/i18n.js"></script>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/sparkline.js"></script>
+<script src="/static/js/charts.js"></script>
+<script src="/static/js/map.js"></script>
+<script src="/static/js/drawer.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

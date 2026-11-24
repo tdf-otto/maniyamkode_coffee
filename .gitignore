@@ -221,3 +221,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- this app ---
+.env
+.venv/
+__pycache__/
+*.pyc
+data/app.db*
+data/processed/
+data/cache/
+data/exports/
+!data/PUL_plots.geojson
+.pytest_cache/
